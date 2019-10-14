@@ -1,0 +1,407 @@
+using System;
+using System.Media;
+namespace beta_v1._0
+{
+    class menu
+    {
+        static void Main()
+        {
+           
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            SoundPlayer mainmenu = new SoundPlayer(Properties.Resources.mainmenu1);
+            mainmenu.PlayLooping();
+            Console.WriteLine("                                  DESCENT TO HEAVEN  V1.0");
+            Console.WriteLine("\n====================================================");
+            Console.WriteLine("NOTE:");
+            Console.WriteLine("must read to understand mechanics(except for that author part XD)");
+            Console.WriteLine("author : mahesh patapalli ");
+            Console.WriteLine("this is a non commercial program created for personal and fun use.");
+            Console.WriteLine("this program contains audio that has questionable enthicity and this is a fair warning if u are not bombarded by that");
+            Console.WriteLine("intro audio");
+            Console.WriteLine("this a small puzzle based program where u will navigate through rooms.");
+            Console.WriteLine("this gmae features a sanity system u will have a certain number of sanity point which will be used to move between the  rooms.once the sanity points hits to 0 needless to say (ur f*ked) game over ");
+            Console.WriteLine("this has a story so identify to clues that are present throughout the game and navigate yourself");
+            Console.WriteLine("REMEMBER U HAVE 8 SANITY POINTS.KEEP COUNT OF THEM.U WILL USE 2 SANITY POINTS TO MOVE TO A ROOM AND GET BACK. USE THEM WELL");
+            Console.WriteLine("PEACE OUT!   ");
+        l1:
+            Console.WriteLine("==================== MAIN MENU======================");
+            Console.WriteLine("press 1 to start");
+            string c1 = Console.ReadLine();
+            int choice = int.Parse(c1);
+            if (choice == 1)
+            {
+                mainmenu.Stop();
+                Bedroom1();
+            }
+            else
+            {
+                Console.WriteLine("well u seemed to have entered something else");
+                goto l1;
+            }
+
+        }
+        public static void Bedroom1()
+        {
+        gtfo:
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("\nyou wake up in a dark room. you look around the room. its night outside and the room is dark. there is a desk beside the bed with a phone on top of it. You reach to   grab it and it rings. You pick it up only to see its battery died.");
+            Console.WriteLine("You keep the phone in the pocket and inspect the surroundings. it seems like you are in a house of some kind. various sounds can be heard beyond the door");
+            Console.WriteLine("\"Its better to get out of here maybe there is a front door the window here is grilled!\" ");
+            Console.WriteLine("\"this place is really creepy\"");
+            Console.WriteLine("you find a note on the ground it reads");
+            Console.WriteLine("\"THE WALLS SIGNIFY THE POSITION\"");
+            Console.WriteLine("\"what is this note? what walls? anyway i need to get out of here");
+            Console.WriteLine("get out(press 1)");
+            string get_out = Console.ReadLine();
+            int Get_out = int.Parse(get_out);
+            if (Get_out == 1)
+            {
+                
+                Corridor1();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("enter one to get out of room");
+                goto gtfo;
+            }
+
+        }
+        public static void Corridor1()
+        {
+            int sanity = 8;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("You open the door to a corridor of some kind. \"Is that blood on the walls?\" you see blood seeping through the walls,two dismembered corpses lay on th floor with its    insides sticking out.. you see a rack to your side with a flower vase with a human head on top.");
+            Console.WriteLine("\"OMG is that you kiana?\"you recognize the face as it belonged to one of your friend.\"BUT WHY?\"\"HOW?\"you fall into your  knees crying. the world around you changes,     there are 3 doors labelled 1,2,3 and a wardrobe to your right");
+            Console.WriteLine("What Will You Do?");
+        corr:
+            Console.WriteLine("1. enter door no 1");
+            Console.WriteLine("2. enter door no 2");
+            Console.WriteLine("3. enter door no 3");
+            Console.WriteLine("4. check wardrobe ");
+            Console.WriteLine("(enter the corresponding no)");
+            string corridor = Console.ReadLine();
+            int cor = int.Parse(corridor);
+            if (cor == 1)
+            {
+                Storeroom(sanity);
+            }
+            else if (cor == 2)
+            {
+                Bathroom(sanity);
+            }
+            else if (cor == 3)
+            {
+                Radioroom(sanity);
+            }
+            else if (cor == 4)
+            {
+                Wardrobe(sanity);
+            }
+            else
+            {
+                Console.WriteLine("enter the options provided :) ");
+                goto corr;
+            }
+        }
+        public static void Corridor2(int sanity)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            
+
+        coor:
+            --sanity;
+            if (sanity != 0)
+            {
+                Console.WriteLine("\n\n\n\n");
+                Console.WriteLine("you enter the corridor u previously visited. there are 3 doors and a wardrobe");
+                Console.WriteLine("1.open room no 1");
+                Console.WriteLine("2.open room no 2");
+                Console.WriteLine("3.open room no 3");
+                Console.WriteLine("4.open wardrobe");
+                string corridor2 = Console.ReadLine();
+                int corr2 = int.Parse(corridor2);
+                if (corr2 == 1)
+                {
+                        Storeroom(sanity);
+                    
+                }
+                else if (corr2 == 2)
+                {
+                        Bathroom(sanity);
+
+                }
+                else if (corr2 == 3)
+                {
+                        Radioroom(sanity);
+                }
+                else if (corr2 == 4)
+                {
+                        Wardrobe(sanity);
+                }
+                else
+                {
+                    Console.WriteLine("enter a provided no");
+                    Console.Clear();
+                    goto coor;
+                }
+            }
+            else
+            {
+                Badend();
+            }
+        }
+        public static void Storeroom(int sanity)
+        {
+            --sanity;
+            if (sanity != 0)
+            {
+                SoundPlayer storeroom = new SoundPlayer(Properties.Resources.storeroomM1);
+                storeroom.PlayLooping();
+            Store:
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Clear();
+                Console.WriteLine("\n\n\n");
+                Console.WriteLine("you open the door to see a corpse hanging from ceiling. " +
+                    "\"NO,NO,NO,NO,NO,NO,NO,NO\"\"WHO DID THIS? WHAT DO U WANT FROM ME?\"the corpse begin to mutter somthing \"2048639,2048639,2048639,2048639\". it feels out of place. you feels chills up your spine. " +
+                    "you see an entity staring at you from outside through a window. it is making strange noises. you approach it. it bursts into crying and starts banging at the window. you get a clear look of the face of ut .it seems to be ghost. but it feels like the ghost is your mother's." +
+                    "you immediatly run out of the room and shut the door behind you");
+                Console.WriteLine("PRESS 1 TO CONTINUE");
+                string st1 = Console.ReadLine();
+                int st = int.Parse(st1);
+                if (st == 1)
+                {
+                    storeroom.Stop();
+                    Corridor2(sanity);
+                }
+                else
+                {
+                    Console.Clear();
+                    goto Store;
+                }
+            }
+            else
+            {
+                Badend();
+            }        
+        }
+        public static void Bathroom(int sanity)
+        {
+            --sanity;
+            if (sanity != 0)
+            {
+                Console.Clear();
+                SoundPlayer Bathroom = new SoundPlayer(Properties.Resources.bathroomM);
+                Bathroom.PlayLooping();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\n you open the door to a bathroom \"This looks something of of a horror film\" " +
+                    "the door shuts immediately after you enter the room , you hear a baby scremming coming from the sink. a bathtub in cornor and a toilet to your right.");
+            B1:
+                Console.WriteLine("1.inspect bathtub");
+                Console.WriteLine("2.inspect sink");
+                Console.WriteLine("3.toilet");
+                Console.WriteLine("4.back to corridor");
+                string bathroom = Console.ReadLine();
+                int bath = int.Parse(bathroom);
+                if (bath == 1)
+                {
+                    Console.WriteLine("you lean towards bathtub to inspect it, it is filled with feces.yet there is not smell.there is an engraving on the wall beside shower head.");
+                    Console.WriteLine("it reads \"MIRROR DIMENSION WILL SHOW THE PATH\" you turn your head and see a mirror near the sink.");
+                    Console.WriteLine("1.back");
+                b2:
+                    string bak = Console.ReadLine();
+                    int ba2 = int.Parse(bak);
+                    if (ba2 == 1)
+                    {
+                        goto B1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("enter 1 to go back");
+                        goto b2;
+                    }
+                }
+                else if (bath == 2)
+                {
+                    Console.Clear();
+                    Console.WriteLine("you lean towards the sink, you see a foetus crying on top of its lungs.your heart trembles at the horror, even though the foetus is terrifying,it really seems familiar somehow");
+                    Console.WriteLine("there is a article taped to the mirror it reads");
+                    Console.WriteLine("   \n                  LATERAL INVERSION");
+                    Console.WriteLine("Lateral inversion means the apparent reversal of the mirror images left and right when compared with the object. Lateral just means sideways.In a plane mirror, each point on the image is as far behind the mirror plane as the corresponding point on the object is in front");
+                    Console.WriteLine("for example a number inversed can open new pathways and cause drastic changes");
+                rev1:
+                    Console.WriteLine("press 1 to go back");
+                    string bak2 = Console.ReadLine();
+                    int b3 = int.Parse(bak2);
+                    if (b3 == 1)
+                    {
+                        goto B1;
+
+                    }
+                    else
+                    {
+                        goto rev1;
+                    }
+                }
+                else if (bath == 3)
+                {
+                    Console.WriteLine("\nyou move towards the toilet \" Ugh, not sure I even want to check it\" the baby cries even louder");
+                    Console.WriteLine("press 1 to go back");
+                rev2:
+                    string toilet = Console.ReadLine();
+                    int toil = int.Parse(toilet);
+                    if (toil == 1)
+                    {
+                        goto B1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("press 1 to go back");
+                        goto rev2;
+                    }
+                }
+                else if (bath == 4)
+                {
+                    Bathroom.Stop();
+                    Console.Clear();
+                    Corridor2(sanity);
+                }
+                else
+                {
+                    Console.WriteLine("enter 1-4 numbers only");
+                    goto B1;
+                }
+            }
+            else
+            {
+                Badend();
+            }
+        }
+        public static void Radioroom(int sanity)
+        {
+            --sanity;
+            if (sanity != 0)
+            {
+                SoundPlayer Radioroom = new SoundPlayer(Properties.Resources.corridor);
+                Radioroom.PlayLooping();
+                Console.WriteLine("you open the door to a hall where two decayed corpses sit on the couch.there is a radio on the far side of room. on the wall to left big numbers are sprayed in blood   \"6167\"");
+                Console.WriteLine("1.approach the radio");
+                Console.WriteLine("2.back to corridor");
+                string rad = Console.ReadLine();
+                int rad1 = int.Parse(rad);
+                if (rad1 == 1)
+                {
+                    Console.WriteLine("\n\nyou approach the radio and turn it on it immediatly tunes to a news boardcast");
+                    Console.WriteLine("\n\"we interrupt the football match to bring an important news,this is tokyo radio news,tonight we faced an unfortunate incident in tokyo olympics 2020");
+                    Console.WriteLine("where an unknown assailant marched into stadium and shot a person. he was immediately subdued but,there have been 1 victim.the victim name is \"YURIKO TYAGISHIRA\"");
+                    Console.WriteLine("a women of age 26 was shot in cold blood in the stomach and is immediately rushed to hospital where she is undergoing treatment, yuriko, is a single mother until 2 months ago");
+                    Console.WriteLine("when she \"accidentally\"left her baby in an overflowing sink to answer the door to her boyfriend. the baby drowned in the sink.she was convicted and sentenced with community service and psychological evaluation\"");
+                    Console.WriteLine("\"doctors state that she was suffering from ANTI SOCIAL PERSONALITY DISORDER. now onto the wheather......\"");
+                    Console.WriteLine("you think about it, but you hear screams from the decayed corpse you rush outside");
+                rad3:
+                    Console.WriteLine("press 1 to get out of that room");
+                    string rad2 = Console.ReadLine();
+                    int rad4 = int.Parse(rad2);
+                    if (rad4 == 1)
+                    {
+                        Radioroom.Stop();
+                        Console.Clear();
+                        Corridor2(sanity);
+                    }
+                    else
+                    {
+                        goto rad3;
+                    }
+                }
+                else if (rad1 == 2)
+                {
+                    Radioroom.Stop();
+                    Console.Clear();
+                    Corridor2(sanity);
+                }
+            }
+            else
+            {
+                Badend();
+            }
+        }
+        public static void Wardrobe(int sanity)
+        {
+            --sanity;
+            if (sanity != 0)
+            {
+                Console.Clear();
+                SoundPlayer goodend = new SoundPlayer(Properties.Resources.goodend);
+                goodend.PlayLooping();
+                Console.WriteLine("you open the wardrobe to inspect. you see light and get sucked into a room which is a front door ,it has a passcode lock you inspect it");
+            pass1:
+                Console.WriteLine("1.enter passcode");
+                Console.WriteLine("2.go back to corridor");
+                string war = Console.ReadLine();
+                int warb = int.Parse(war);
+                if (warb == 1)
+                {
+
+
+                    Console.WriteLine("enter in passcode:");
+                    string pass = Console.ReadLine();
+                    int passcode = int.Parse(pass);
+                    if (passcode == 0902)
+                    {
+                        Console.WriteLine("you got out of the house");
+                        Goodend();
+                    }
+                    else
+                    {
+                        Console.WriteLine("the passcode is wrong .please try again");
+                        goto pass1;
+                    }
+                }
+                else
+                {
+                    goodend.Stop();
+                    Corridor2(sanity);
+                }
+            }
+            else
+            {
+                Badend();
+            }
+        }
+        public static void Goodend()
+        {
+            Console.WriteLine("     \n\n                            GAME OVER");
+            Console.WriteLine("================================================================================");
+            Console.WriteLine("REPORT-0902B1");
+            Console.WriteLine("yuriko tyagishira has died from the gunshot wound. official time at 0656 hrs. may she find peace in the afterlife. " +
+                "the security at olympics are investigating on how this murder happened.......  ");
+            Console.WriteLine("(close the game through alt+f4)");
+            Console.ReadLine();
+
+        }
+        public static void Badend()
+        {
+            Console.Clear();
+            System.Media.SoundPlayer badend = new System.Media.SoundPlayer(Properties.Resources.badend);
+            badend.PlayLooping();
+            Console.WriteLine("                                 GAME OVER");
+            Console.WriteLine("YOU USED UP ALL THE SANITY POINTS");
+            Console.WriteLine("================================================================================");
+            Console.WriteLine("REPORT-0902B1");
+            Console.WriteLine("yuriko tyagishira has survived the gunshot wound. but her mental condition is beyond what science can determine.");
+            Console.WriteLine("she is totally devastated and is harmful to every human who visits her. the only person who had non harmful conversation with her is docter inazuka ");
+            Console.WriteLine("who is opposing the argument of her disposal. yuriko is deamed dangerous and sent to mental asylum for the rest of her life or until she is recovered ");
+            Console.WriteLine("the following symptoms of yuriko are following but not limited to");
+            Console.WriteLine("1. a severe case of ANTI SOCIAL PERSONALITY DISORDER");
+            Console.WriteLine("2. hysteria ");
+            Console.WriteLine("3. post tramatic stress disorder");
+            Console.WriteLine("4. schizophrenia...........");
+            Console.WriteLine("================================================================================");
+            Console.WriteLine("\n\n\n(close the game through alt+f4)");
+            Console.ReadLine();
+
+        }
+    }
+}
